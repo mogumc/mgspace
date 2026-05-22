@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# build
+.next/
+out/
+build/
+
+# misc
+.DS_Store
+*.pem
+.env*
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# content (articles/projects)
+content/*.md
+
+# public images
+public/*.webp
+public/*.png
+public/*.jpg
