@@ -18,14 +18,6 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# content (articles/projects)
-content/*.md
-
-# public images
-public/*.webp
-public/*.png
-public/*.jpg
-
 # workspace
 .codebuddy/
 .workbuddy/
