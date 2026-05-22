@@ -25,3 +25,7 @@ content/*.md
 public/*.webp
 public/*.png
 public/*.jpg
+
+# workspace
+.codebuddy/
+.workbuddy/
