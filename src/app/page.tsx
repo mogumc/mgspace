@@ -9,11 +9,12 @@ import { siteConfig } from '@/lib/config.server';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
+  const title = `${siteConfig.title} | ${siteConfig.description}`;
   return {
-    title: siteConfig.title || "MoGuSpace",
+    title: title,
     description: siteConfig.description || "A minimal geometric portfolio",
     openGraph: {
-      title: siteConfig.title || "MoGuSpace",
+      title: title,
       description: siteConfig.description || "A minimal geometric portfolio",
       url: siteConfig.siteUrl || undefined,
       siteName: siteConfig.title || "MoGuSpace",
@@ -25,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: siteConfig.title || "MoGuSpace",
+      title: title,
       description: siteConfig.description || "A minimal geometric portfolio",
       ...(siteConfig.siteImage && {
         images: [siteConfig.siteImage],
