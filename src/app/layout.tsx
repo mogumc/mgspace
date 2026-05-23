@@ -17,14 +17,16 @@ export const metadata: Metadata = {
     description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
     url: siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : undefined,
     siteName: siteConfig.seo?.siteName || siteConfig.title,
-    images: [
-      {
-        url: siteConfig.seo?.ogImage || "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: siteConfig.title || "MoGuSpace",
-      },
-    ],
+    ...(siteConfig.seo?.ogImage && {
+      images: [
+        {
+          url: siteConfig.seo.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.title || "MoGuSpace",
+        },
+      ],
+    }),
     locale: siteConfig.seo?.locale || "zh-CN",
     type: (siteConfig.seo?.type as any) || "website",
   },
@@ -32,7 +34,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title || "MoGuSpace",
     description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
-    images: [siteConfig.seo?.ogImage || "/og-image.png"],
+    ...(siteConfig.seo?.ogImage && {
+      images: [siteConfig.seo.ogImage],
+    }),
   },
 };
 

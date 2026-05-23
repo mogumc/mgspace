@@ -19,14 +19,16 @@ export async function generateMetadata(): Promise<Metadata> {
       description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
       url: baseUrl,
       siteName: siteConfig.seo?.siteName || siteConfig.title,
-      images: [
-        {
-          url: siteConfig.seo?.ogImage || "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: siteConfig.title || "MoGuSpace",
-        },
-      ],
+      ...(siteConfig.seo?.ogImage && {
+        images: [
+          {
+            url: siteConfig.seo.ogImage,
+            width: 1200,
+            height: 630,
+            alt: siteConfig.title || "MoGuSpace",
+          },
+        ],
+      }),
       locale: siteConfig.seo?.locale || "zh-CN",
       type: "website",
     },
@@ -34,7 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: siteConfig.title || "MoGuSpace",
       description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
-      images: [siteConfig.seo?.ogImage || "/og-image.png"],
+      ...(siteConfig.seo?.ogImage && {
+        images: [siteConfig.seo.ogImage],
+      }),
     },
   };
 }

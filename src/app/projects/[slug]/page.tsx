@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const baseUrl = siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : '';
   const projectUrl = `${baseUrl}/projects/${slug}`;
   
+  // 确定图片URL：优先使用项目图片，其次使用默认OG图片
+  const imageUrl = project.imageUrl || siteConfig.seo?.ogImage;
+  
   return {
     title: `${project.title} - ${siteConfig.title}`,
     description: project.description,
@@ -36,14 +39,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: project.description,
       url: projectUrl,
       siteName: siteConfig.seo?.siteName || siteConfig.title,
-      images: [
-        {
-          url: project.imageUrl || siteConfig.seo?.ogImage || "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
+      ...(imageUrl && {
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: project.title,
+          },
+        ],
+      }),
       locale: siteConfig.seo?.locale || "zh-CN",
       type: "article",
     },
@@ -51,7 +56,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${project.title} - ${siteConfig.title}`,
       description: project.description,
-      images: [project.imageUrl || siteConfig.seo?.ogImage || "/og-image.png"],
+      ...(imageUrl && {
+        images: [imageUrl],
+      }),
     },
   };
 }
