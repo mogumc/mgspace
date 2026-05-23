@@ -2,6 +2,10 @@ title: "MoGuSpace"
 name: "YOUR NAME"
 description: "A minimal geometric portfolio"
 
+siteUrl: "https://moguspace.com"
+siteImage: "/og-image.png"
+siteLocale: "zh-CN"
+
 favicon: ""
 
 background: "/bg.webp"
@@ -57,11 +61,3 @@ friends:
     url: "#"
   - label: "Tech Site"
     url: "#"
-
-seo:
-  url: "https://moguspace.com"
-  defaultDescription: "A minimal geometric portfolio showcasing projects and skills"
-  ogImage: "/og-image.png"
-  siteName: "MoGuSpace"
-  locale: "zh-CN"
-  type: "website"

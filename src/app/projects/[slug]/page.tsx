@@ -25,17 +25,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProjectBySlug(slug);
   if (!project) return { title: 'Not Found' };
   
-  // 使用配置的 url 作为基础，如果没有配置则使用相对路径
-  const baseUrl = siteConfig.seo?.url || '';
-  const projectUrl = baseUrl ? `${baseUrl}/projects/${slug}` : `/projects/${slug}`;
+  // 使用配置的 siteUrl 作为基础，如果没有配置则使用相对路径
+  const projectUrl = siteConfig.siteUrl ? `${siteConfig.siteUrl}/projects/${slug}` : `/projects/${slug}`;
   
   // 使用文章内的 description 和 imageUrl
   const description = project.description;
   const imageUrl = project.imageUrl;
   
-  // og:title 使用 siteName | title 格式
-  const siteName = siteConfig.seo?.siteName || siteConfig.title;
-  const ogTitle = `${siteName} | ${project.title}`;
+  // og:title 使用 title | project.title 格式
+  const ogTitle = `${siteConfig.title} | ${project.title}`;
   
   return {
     title: `${project.title} - ${siteConfig.title}`,
@@ -44,18 +42,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: ogTitle,
       description: description,
       url: projectUrl,
-      siteName: siteName,
+      siteName: siteConfig.title || "MoGuSpace",
       ...(imageUrl && {
-        images: [
-          {
-            url: imageUrl,
-            width: 1200,
-            height: 630,
-            alt: project.title,
-          },
-        ],
+        images: [imageUrl],
       }),
-      locale: siteConfig.seo?.locale || "zh-CN",
+      locale: siteConfig.siteLocale || "zh-CN",
       type: "article",
     },
     twitter: {

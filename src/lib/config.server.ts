@@ -9,6 +9,9 @@ export const siteConfig = yaml.load(fs.readFileSync(configPath, 'utf8')) as {
   name: string;
   title: string;
   description: string;
+  siteUrl: string;
+  siteImage: string;
+  siteLocale: string;
   favicon: string;
   background: string;
   showNavbarLogo: boolean;
@@ -16,14 +19,6 @@ export const siteConfig = yaml.load(fs.readFileSync(configPath, 'utf8')) as {
   navbar: { label: string; url: string }[];
   social: { label: string; url: string }[];
   friends: { label: string; url: string }[];
-  seo: {
-    url: string;
-    defaultDescription: string;
-    ogImage: string;
-    siteName: string;
-    locale: string;
-    type: string;
-  };
 };
 
 if (siteConfig.skills) {
