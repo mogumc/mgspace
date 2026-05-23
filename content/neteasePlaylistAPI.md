@@ -1,7 +1,7 @@
 ---
 title: neteasePlaylistAPI
 description: neteasePlaylistAPI 是一个基于 Go 构建的 API 处理服务，用于解析网易云音乐播放列表并输出歌词与歌曲信息，常搭配 home 项目使用。
-category: Tool
+category: API
 projectUrl: https://github.com/mogumc/neteasePlaylistAPI
 imageUrl: /images/4326f9ee.png
 date: 2025-08-08 17:16:17
