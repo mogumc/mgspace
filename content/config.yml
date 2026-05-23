@@ -6,7 +6,7 @@ siteUrl: "https://space.moguq.top"
 siteImage: "/bg.webp"
 siteLocale: "zh-CN"
 
-favicon: ""
+favicon: "/logo.png"
 
 background: "/bg.webp"
 
