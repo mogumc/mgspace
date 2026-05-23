@@ -2,8 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   images: {
-    unoptimized: true, // 静态导出通常需要禁用图片优化
+    unoptimized: true,
   },
 };
 
