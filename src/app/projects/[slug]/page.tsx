@@ -28,17 +28,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const baseUrl = siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : '';
   const projectUrl = `${baseUrl}/projects/${slug}`;
   
-  // 确定图片URL：优先使用项目图片，其次使用默认OG图片
-  const imageUrl = project.imageUrl || siteConfig.seo?.ogImage;
+  // 使用文章内的 description 和 imageUrl
+  const description = project.description;
+  const imageUrl = project.imageUrl; // 仅使用文章内的图片，不回退到默认图片
+  
+  // og:title 使用 siteName | title 格式
+  const siteName = siteConfig.seo?.siteName || siteConfig.title;
+  const ogTitle = `${siteName} | ${project.title}`;
   
   return {
     title: `${project.title} - ${siteConfig.title}`,
-    description: project.description,
+    description: description,
     openGraph: {
-      title: `${project.title} - ${siteConfig.title}`,
-      description: project.description,
+      title: ogTitle,
+      description: description,
       url: projectUrl,
-      siteName: siteConfig.seo?.siteName || siteConfig.title,
+      siteName: siteName,
       ...(imageUrl && {
         images: [
           {
@@ -54,8 +59,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} - ${siteConfig.title}`,
-      description: project.description,
+      title: ogTitle,
+      description: description,
       ...(imageUrl && {
         images: [imageUrl],
       }),
