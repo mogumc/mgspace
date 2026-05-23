@@ -6,6 +6,38 @@ import Intro from '@/components/Intro';
 import Footer from '@/components/Footer';
 import { getAllProjects } from '@/lib/projects';
 import { siteConfig } from '@/lib/config.server';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : '';
+  
+  return {
+    title: siteConfig.title || "MoGuSpace",
+    description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
+    openGraph: {
+      title: siteConfig.title || "MoGuSpace",
+      description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
+      url: baseUrl,
+      siteName: siteConfig.seo?.siteName || siteConfig.title,
+      images: [
+        {
+          url: siteConfig.seo?.ogImage || "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: siteConfig.title || "MoGuSpace",
+        },
+      ],
+      locale: siteConfig.seo?.locale || "zh-CN",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.title || "MoGuSpace",
+      description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
+      images: [siteConfig.seo?.ogImage || "/og-image.png"],
+    },
+  };
+}
 
 export default function Home() {
   const projects = getAllProjects();

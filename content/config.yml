@@ -57,3 +57,10 @@ friends:
     url: "#"
   - label: "Tech Site"
     url: "#"
+
+seo:
+  defaultDescription: "A minimal geometric portfolio showcasing projects and skills"
+  ogImage: "/og-image.png"
+  siteName: "MoGuSpace"
+  locale: "zh-CN"
+  type: "website"
