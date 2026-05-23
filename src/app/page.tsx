@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: siteConfig.description || "A minimal geometric portfolio",
       url: siteConfig.siteUrl || undefined,
       siteName: siteConfig.title || "MoGuSpace",
-      images: [siteConfig.siteImage],
+      ...(siteConfig.siteImage && { images: [siteConfig.siteImage] }),
       locale: siteConfig.siteLocale || "zh-CN",
       type: "website",
     },
@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: title,
       description: siteConfig.description || "A minimal geometric portfolio",
-      images: [siteConfig.siteImage],
+      ...(siteConfig.siteImage && { images: [siteConfig.siteImage] }),
     },
   };
 }

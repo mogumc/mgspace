@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // 使用配置的 siteUrl 作为基础，如果没有配置则使用相对路径
   const projectUrl = siteConfig.siteUrl ? `${siteConfig.siteUrl}/projects/${slug}` : `/projects/${slug}`;
   
-  // 使用文章内的 description，imageUrl 优先使用文章图片，否则使用默认图片
+  // 使用文章内的 description 和 imageUrl
   const description = project.description;
-  const imageUrl = project.imageUrl || siteConfig.siteImage;
+  const imageUrl = project.imageUrl; // 只有有图片时才添加到 OpenGraph
   
   // og:title 使用 title | project.title 格式
   const ogTitle = `${siteConfig.title} | ${project.title}`;
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: description,
       url: projectUrl,
       siteName: siteConfig.title || "MoGuSpace",
-      images: [imageUrl],
+      ...(imageUrl && { images: [imageUrl] }),
       locale: siteConfig.siteLocale || "zh-CN",
       type: "article",
     },
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: ogTitle,
       description: description,
-      images: [imageUrl],
+      ...(imageUrl && { images: [imageUrl] }),
     },
   };
 }
