@@ -3,7 +3,7 @@ title: OtoChan_Prompt
 description: OtoChan_Prompt 是一个二次元少女角色 Prompt，包含宫瀬音 (Miyase Oto) 的角色设定、口头禅及语音合成配置，适用于 LLM 角色扮演。
 category: AI
 projectUrl: https://github.com/mogumc/OtoChan_Prompt
-imageUrl: /images/469e8fdf.png
+imageUrl: /images/469e8fdf.webp
 date: 2026-05-17 15:28:07
 techStack:
   - name: "Markdown"

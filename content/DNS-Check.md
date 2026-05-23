@@ -3,7 +3,7 @@ title: DNS-Check
 description: DNS-Check 是一个基于 Go 的 DNS 性能测试工具，从查询延迟、TCP 连接延迟及 IP 访问速度三个维度评估 DNS 性能，并通过加权评分进行排序。
 category: Tool
 projectUrl: https://github.com/mogumc/DNS-Check
-imageUrl: /images/808c5311.png
+imageUrl: /images/808c5311.webp
 date: 2025-07-30 14:59:37
 techStack:
   - name: "Go"

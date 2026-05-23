@@ -3,7 +3,7 @@ title: OpenMoGuQAQ
 description: OpenMoGuQAQ 是一个全栈工程化开发助手 Skill，通过智能路由机制管理不同的执行层（架构、实现、审查、迭代），确保 AI 输出符合工程稳健性与技术规范。
 category: AI
 projectUrl: https://github.com/mogumc/OpenMoGuQAQ
-imageUrl: /images/a107a59a.png
+imageUrl: /images/a107a59a.webp
 date: 2026-04-29 12:52:51
 techStack:
   - name: "GitHub"

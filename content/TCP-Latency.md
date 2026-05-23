@@ -3,7 +3,7 @@ title: TCP-Latency
 description: TCP-Latency 是一个基于 Go 开发的网络联通性测试工具，用于测试本地环境对全国各地节点的 TCP 延迟，支持多系统架构。
 category: Tool
 projectUrl: https://github.com/mogumc/TCP-Latency
-imageUrl: /images/20cb055e.png
+imageUrl: /images/20cb055e.webp
 date: 2026-03-07 12:51:11
 techStack:
   - name: "Go"

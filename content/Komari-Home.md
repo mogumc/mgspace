@@ -3,7 +3,7 @@ title: Komari-Home
 description: Komari-Home 是基于 home 项目重构的个人主页，深度整合了 Komari 探针信息作为子页面，提供更统一、清爽的主页风格体验。
 category: Web
 projectUrl: https://github.com/mogumc/Komari-Home
-imageUrl: /images/d9b1f77c.png
+imageUrl: /images/d9b1f77c.webp
 date: 2025-08-15 21:10:29
 techStack:
   - name: "Vue.js"

@@ -3,7 +3,7 @@ title: QQFile
 description: QQFile 是一个演示性质的 Webview2 程序，旨在实现基于网页的 Cookie 获取登录功能，结合了 Gin API 与异步服务架构。
 category: Client
 projectUrl: https://github.com/mogumc/QQFile
-imageUrl: /images/1e755355.png
+imageUrl: /images/1e755355.webp
 date: 2026-01-30 22:14:28
 techStack:
   - name: "Go"

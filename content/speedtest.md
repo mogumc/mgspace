@@ -3,7 +3,7 @@ title: SpeedTest-GD
 description: SpeedTest-GD 是一个基于 Wails、Vue3 和 Element-Plus 构建的 Windows 平台网速测试工具，通过 GET 和 POST 方法实现单/多线程测速与多节点测速。
 category: Client
 projectUrl: https://github.com/mogumc/speedtest
-imageUrl: /images/e4164f3b.png
+imageUrl: /images/e4164f3b.webp
 date: 2025-06-27 18:24:38
 techStack:
   - name: "Vue.js"

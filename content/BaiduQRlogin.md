@@ -3,7 +3,7 @@ title: BaiduQRlogin
 description: BaiduQRlogin 是一个基于 Go 编写的百度系通用扫码工具，用于获取 BDUSS 和 PTOKEN，仅供流程参考和学习使用。
 category: Tool
 projectUrl: https://github.com/mogumc/BaiduQRlogin
-imageUrl: /images/62524379.png
+imageUrl: /images/62524379.webp
 date: 2026-04-14 13:55:33
 techStack:
   - name: "Go"

@@ -3,7 +3,7 @@ title: OCSC
 description: OCS Copilot (OCSC) 是一个用于 OCS 网课助手的本地大模型代理服务，支持将 OpenAI 协议请求转发到本地大模型，并进行结构化输出约束。
 category: Tool
 projectUrl: https://github.com/mogumc/OCSC
-imageUrl: /images/d47b91cf.png
+imageUrl: /images/d47b91cf.webp
 date: 2026-04-30 11:14:19
 techStack:
   - name: "Go"

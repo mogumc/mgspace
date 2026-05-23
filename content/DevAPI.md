@@ -3,7 +3,7 @@ title: DevAPI
 description: DevAPI 是一个基于 Gin 框架构建的高性能 API 架构，具备统一的路由管理和完善的日志记录功能。
 category: API
 projectUrl: https://dev.moguq.top
-imageUrl: /images/0063b145.png
+imageUrl: /images/0063b145.webp
 date: 2025-08-09 00:00:00
 techStack:
   - name: "Go"

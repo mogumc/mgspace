@@ -3,7 +3,7 @@ title: Komari-MCP-Server
 description: Komari-MCP-Server 是一个基于 Go 开发的 Komari 服务器监控 API 的 MCP 服务器，支持 stdio 和 HTTP 传输模式，为 AI 提供节点监控数据。
 category: AI
 projectUrl: https://github.com/mogumc/Komari-MCP-Server
-imageUrl: /images/a63f9b31.png
+imageUrl: /images/a63f9b31.webp
 date: 2026-05-19 14:17:49
 techStack:
   - name: "Go"

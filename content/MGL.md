@@ -3,7 +3,7 @@ title: MGL
 description: MGL (Multi Game Launcher) 是一个使用 Wails2、Vue3 和 Go 构建的 Windows 平台一站式游戏启动器，具备低占用、高性能的游戏启动与时长记录功能。
 category: Client
 projectUrl: https://github.com/OShinTeam/MGL
-imageUrl: /images/7bc8ea45.png
+imageUrl: /images/7bc8ea45.webp
 date: 2025-05-18 15:01:01
 techStack:
   - name: "Go"

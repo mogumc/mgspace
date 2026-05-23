@@ -3,7 +3,7 @@ title: OShin
 description: OShin 是一个多网盘聚合客户端，基于 Go、Wails v2 和 React 构建，支持插件化设计、本地化文件管理，并可接入 AI 实现智能化管理。
 category: Client
 projectUrl: https://github.com/OShinTeam/OShin
-imageUrl: /images/003aace4.png
+imageUrl: /images/003aace4.webp
 date: 2025-08-02 20:42:09
 techStack:
   - name: "Go"

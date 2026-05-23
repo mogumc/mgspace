@@ -3,7 +3,7 @@ title: Epic302
 description: Epic302 是一个轻量级 Go 编写的代理工具，通过劫持并转发 Epic Games 启动器的下载请求至固定 CDN 节点，实现无缝加速下载。
 category: Tool
 projectUrl: https://github.com/mogumc/Epic302
-imageUrl: /images/07c060f3.png
+imageUrl: /images/07c060f3.webp
 date: 2025-12-12 19:59:56
 techStack:
   - name: "Go"

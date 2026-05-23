@@ -3,7 +3,7 @@ title: MoGuSpace
 description: MoGuSpace 是一个基于 Next.js 和 Material UI 的个人项目展示网站，采用响应式设计和现代 UI 组件，支持 Markdown 项目详情页和丰富的交互动画。
 category: Web
 projectUrl: https://github.com/mogumc/MoGuSpace
-imageUrl: /images/0bebdecd.png
+imageUrl: /images/0bebdecd.webp
 date: 2026-05-22 18:47:12
 techStack:
   - name: "React"
@@ -43,8 +43,8 @@ techStack:
 ├── icons/                          # 技术图标（404 个 SVG）
 ├── public/                         # 静态资源
 │   ├── bg.webp                     # 全局背景图
-│   ├── logo.png                    # Logo
-│   └── logo_bg.png                 # Logo 背景
+│   ├── logo.webp                   # Logo
+│   └── logo_bg.webp                 # Logo 背景
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx              # 根布局（Theme + 背景层 + 导航）

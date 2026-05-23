@@ -3,7 +3,7 @@ title: KinhWebEO
 description: KinhWebEO 是一个基于 Next.js 和 WeUI 的百度网盘文件站，支持文件列表浏览、文件下载、图片/视频/音频在线预览、文件搜索等功能。 后端使用 Go 编写，部署在 EdgeOne 云函数上，移动端响应式设计。
 category: Web
 projectUrl: https://github.com/mogumc/KinhWebEO
-imageUrl: /images/cffe0465.jpg
+imageUrl: /images/cffe0465.webp
 date: 2026-05-21 12:01:34
 techStack:
   - name: "Go"

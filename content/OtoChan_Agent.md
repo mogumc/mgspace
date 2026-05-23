@@ -3,7 +3,7 @@ title: 宫瀬音 (OtoChan)
 description: 基于 AstrBot 框架构建的 AI 智能体，依托大语言模型，具备聊天、多模态（图片/音频）理解、天气、时间及空间感知等多项能力。
 category: AI
 projectUrl: https://t.me/mihoyobot
-imageUrl: /images/469e8fdf.png
+imageUrl: /images/469e8fdf.webp
 date: 2026-05-17 15:28:07
 techStack:
   - name: "Python"

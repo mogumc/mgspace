@@ -3,7 +3,7 @@ title: ThinkMath
 description: ThinkMath 是一个数学建模全链路自动化执行 Skill，支持从问题解析、模型建立、代码求解、数据可视化到标准论文输出的完整闭环。
 category: AI
 projectUrl: https://github.com/mogumc/ThinkMath
-imageUrl: /images/030222ae.png
+imageUrl: /images/030222ae.webp
 date: 2026-05-11 20:09:29
 techStack:
   - name: "Python"

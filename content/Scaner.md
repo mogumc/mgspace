@@ -3,7 +3,7 @@ title: Scaner
 description: Scaner 是一个轻量级的 Go 语言编写的网段 HTTP 扫描器，支持并发扫描指定 CIDR 网段内 IP 的端口，获取 HTTP 响应详情并支持结果导出。
 category: Tool
 projectUrl: https://github.com/mogumc/Scaner
-imageUrl: /images/c6b388d2.png
+imageUrl: /images/c6b388d2.webp
 date: 2025-09-11 14:16:05
 techStack:
   - name: "Go"
