@@ -3,7 +3,7 @@ title: MoGuQAQ's Blog
 description: 基于 Hexo Redefine 主题构建的技术博客，部署于 EdgeOne Pages，专注于分享全栈开发心得、技术实战经验与项目迭代进展。
 category: Web
 projectUrl: https://blog.moguq.top
-imageUrl: /images/9fba1b50.ico
+imageUrl: /images/9fba1b50.png
 date: 2026-05-23 22:25:00
 techStack:
   - name: "Hexo"

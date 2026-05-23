@@ -3,7 +3,7 @@ title: Komari 监控面板
 description: 基于 Komari 探针基础设施搭建的监控面板，采用深度定制的 komari-web-mochi 主题（React + Tailwind CSS），提供直观的服务器状态可视化与实时监控。
 category: Web
 projectUrl: https://run.moguq.top
-imageUrl: /images/9fba1b50.ico
+imageUrl: /images/9fba1b50.png
 date: 2026-05-23 22:35:00
 techStack:
   - name: "React"
