@@ -149,6 +149,10 @@ techStack:
 
 `icons/` 目录内置 404 个技术 SVG 图标，文件名格式为 `{TechName}.svg` / `{TechName}-Dark.svg` / `{TechName}-Light.svg`。在 config 或项目 frontmatter 的 `techStack` 中通过 `icon` 字段引用文件名即可。
 
+> **图标来自**   
+> https://github.com/Dykro/Skill-icon-Chinese-localization   
+> https://github.com/tandpfun/skill-icons  
+
 ## License
 
-MIT
+MIT License
