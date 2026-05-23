@@ -17,6 +17,7 @@ export interface ProjectData {
   title: string;
   description: string;
   imageUrl: string;
+  projectUrl: string;
   date: string;
   category: string;
   techStack: TechStack[];
@@ -33,9 +34,25 @@ function formatDate(date: Date): string {
   return `${y}-${m}-${d} ${h}:${min}:${s}`;
 }
 
+function normalizeDateString(raw: string): string | null {
+  const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]} ${m[4]}:${m[5]}:${m[6]}`;
+  return null;
+}
+
 function getDate(data: any, mtime: Date): string {
   if (data.date) {
-    const d = data.date instanceof Date ? data.date : new Date(data.date);
+    if (typeof data.date === 'string') {
+      // YAML 按字符串解析：直接正则提取，绕过 Date 构造函数
+      const parsed = normalizeDateString(data.date);
+      if (parsed) return parsed;
+    }
+    // YAML 已解析为 Date 对象
+    if (data.date instanceof Date && !isNaN(data.date.getTime())) {
+      return data.date.toISOString().replace('T', ' ').replace(/\.\d+Z$/, '');
+    }
+    // 兜底：其他格式尝试 new Date()
+    const d = new Date(data.date);
     if (!isNaN(d.getTime())) return formatDate(d);
   }
   return formatDate(mtime);
@@ -62,6 +79,7 @@ export function getAllProjects(): ProjectData[] {
       title: data.title || 'Untitled',
       description: data.description || '',
       imageUrl: data.imageUrl || '',
+      projectUrl: data.projectUrl || '',
       date: getDate(data, stats.mtime),
       category: data.category || 'Uncategorized',
       techStack: resolveIconSvg(data.techStack || []),
@@ -81,6 +99,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
     title: data.title || 'Untitled',
     description: data.description || '',
     imageUrl: data.imageUrl || '',
+    projectUrl: data.projectUrl || '',
     date: getDate(data, stats.mtime),
     category: data.category || 'Uncategorized',
     techStack: resolveIconSvg(data.techStack || []),
@@ -90,7 +109,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
 
 export function extractHeadings(markdown: string): { id: string; text: string; level: number }[] {
   const headings: { id: string; text: string; level: number }[] = [];
-  const lines = markdown.split('\n');
+  const lines = markdown.split(/\r?\n/);
   for (const line of lines) {
     const match = line.match(/^(#{1,6})\s+(.+)$/);
     if (match) {
