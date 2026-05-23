@@ -9,12 +9,9 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
   const prevPathname = useRef(pathname);
   const { scrollY } = useScroll();
 
-  // 路由变化时立即重置滚动位置并强制更新 framer-motion
   useEffect(() => {
     if (pathname !== prevPathname.current) {
-      // 同步重置原生滚动
       window.scrollTo(0, 0);
-      // 强制更新 framer-motion 的滚动值
       scrollY.set(0);
       prevPathname.current = pathname;
     }

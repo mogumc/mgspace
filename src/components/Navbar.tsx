@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-// 手动平滑滚动函数
+
 function smoothScrollTo(target: number, duration: number = 500) {
   const start = window.scrollY;
   const change = target - start;
@@ -16,7 +16,6 @@ function smoothScrollTo(target: number, duration: number = 500) {
   function step(currentTime: number) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // easeInOutCubic
     const ease = progress < 0.5
       ? 4 * progress * progress * progress
       : 1 - Math.pow(-2 * progress + 2, 3) / 2;

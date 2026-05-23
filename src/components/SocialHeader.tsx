@@ -8,7 +8,7 @@ export default function SocialHeader() {
       flexDirection: 'column', 
       alignItems: 'center', 
       justifyContent: 'center',
-      color: '#ffffff' // 确保在图片上清晰可见
+      color: '#ffffff'
     }}>
       <Typography variant="h1" sx={{ fontSize: { xs: '3rem', md: '5rem' }, textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
         YOUR NAME

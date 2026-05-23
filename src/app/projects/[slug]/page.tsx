@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   // 使用文章内的 description 和 imageUrl
   const description = project.description;
-  const imageUrl = project.imageUrl; // 仅使用文章内的图片，不回退到默认图片
+  const imageUrl = project.imageUrl;
   
   // og:title 使用 siteName | title 格式
   const siteName = siteConfig.seo?.siteName || siteConfig.title;
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           bgcolor: 'background.paper',
           minWidth: 0,
         }}>
-          {/* 顶部项目图片（框内） */}
+          {/* 顶部项目图片 */}
           {project.imageUrl && (
             <Box sx={{ position: 'relative', width: '100%', height: { xs: '180px', md: '280px' }, overflow: 'hidden' }}>
               <Box
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </Box>
           )}
 
-          {/* 内容区域（无 TOC） */}
+          {/* 内容区域 */}
           <Box sx={{ px: { xs: 3, md: 5 }, py: 4 }}>
             {/* 标题 */}
             <Typography variant="h3" sx={{ mb: 2, fontWeight: 'bold', fontSize: { xs: '1.5rem', md: '2rem' } }}>
@@ -180,7 +180,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Box>
         </Box>
 
-        {/* 右侧 TOC（框外，独立定位） */}
+        {/* 右侧 TOC */}
         <Box sx={{
           width: '200px',
           flexShrink: 0,

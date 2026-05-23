@@ -8,7 +8,7 @@ const theme = createTheme({
     },
     background: {
       default: '#ffffff',
-      paper: '#ffffff', // 改为纯白，通过边框体现几何感
+      paper: '#ffffff',
     },
     text: {
       primary: '#000000',

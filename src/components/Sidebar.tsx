@@ -15,7 +15,6 @@ export default function Sidebar({ config, categories }: { config: any, categorie
       const triggerLine = window.innerHeight * 0.3;
 
       if (direction === 'down') {
-        // 下滑：从后往前找，最后一个 top <= triggerLine 的分类
         for (let i = categories.length - 1; i >= 0; i--) {
           const el = document.getElementById(categories[i]);
           if (!el) continue;
@@ -25,7 +24,6 @@ export default function Sidebar({ config, categories }: { config: any, categorie
           }
         }
       } else {
-        // 上滑：从前往后找，第一个 bottom >= triggerLine 的分类
         for (let i = 0; i < categories.length; i++) {
           const el = document.getElementById(categories[i]);
           if (!el) continue;

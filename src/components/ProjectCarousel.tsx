@@ -72,11 +72,8 @@ export default function ProjectCarousel({ projects, currentSlug }: ProjectCarous
   const isDragging = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 渲染所有项目，通过 transform 定位
-  // 每个项目的位置 = (项目索引 - activeIndex)，通过 mod 处理循环
   const getItemOffset = (itemIdx: number): number => {
     const raw = itemIdx - activeIndex;
-    // 将偏移量限制在 [-1, 1] 范围内（循环）
     if (raw > count / 2) return raw - count;
     if (raw < -count / 2) return raw + count;
     return raw;
