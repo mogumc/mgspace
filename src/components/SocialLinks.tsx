@@ -1,15 +1,16 @@
-import { Box, Typography, Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 
 interface SocialLinksProps {
   config: any;
 }
 
 export default function SocialLinks({ config }: SocialLinksProps) {
+  const links = config.social || [];
   return (
     <Box sx={{ mt: 4, display: 'flex', gap: 3 }}>
-      <Link href={config.social.github} color="inherit" underline="hover">GitHub</Link>
-      <Link href={config.social.twitter} color="inherit" underline="hover">Twitter</Link>
-      <Link href={config.social.blog} color="inherit" underline="hover">Blog</Link>
+      {links.map((link: any) => (
+        <Link key={link.label} href={link.url} color="inherit" underline="hover">{link.label}</Link>
+      ))}
     </Box>
   );
 }

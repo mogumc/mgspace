@@ -1,29 +1,58 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Box, Typography, Link, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Box, Typography, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Link as MuiLink } from '@mui/material';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+
+// 手动平滑滚动函数
+function smoothScrollTo(target: number, duration: number = 500) {
+  const start = window.scrollY;
+  const change = target - start;
+  const startTime = performance.now();
+
+  function step(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // easeInOutCubic
+    const ease = progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    window.scrollTo(0, start + change * ease);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+  requestAnimationFrame(step);
+}
 
 export default function Navbar({ config }: { config: any }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const lastScrollY = useRef(0);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious();
-    if (previous !== undefined && latest > previous && latest > 150) {
-      setHidden(true); // 下滑隐藏
+    if (latest > lastScrollY.current && latest > 150) {
+      setHidden(true);
     } else {
-      setHidden(false); // 上滑显示
+      setHidden(false);
     }
+    lastScrollY.current = latest;
   });
 
-  const navLinks = [
-    { label: 'GitHub', href: config.social.github },
-    { label: 'Twitter', href: config.social.twitter },
-    { label: 'Blog', href: config.social.blog },
-  ];
+  const navLinks = config.navbar || [];
+
+  const handleTitleClick = (e: React.MouseEvent) => {
+    if (isHome) {
+      e.preventDefault();
+      smoothScrollTo(0, 600);
+    }
+  };
 
   return (
     <>
@@ -44,33 +73,39 @@ export default function Navbar({ config }: { config: any }) {
           bgcolor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)',
           borderBottom: '1px solid #e0e0e0'
         }}>
-          <Link href="/" color="inherit" underline="none">
+          <MuiLink href="/" component={NextLink} color="inherit" underline="none" onClick={handleTitleClick} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {config.showNavbarLogo && (
+              <Box component="img" src="/logo.png" alt="Logo" sx={{ height: 32, width: 32 }} />
+            )}
             <Typography variant="h6" fontWeight="bold">{config.name}</Typography>
-          </Link>
+          </MuiLink>
 
-          {/* 桌面端链接 */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-            {navLinks.map(link => (
-              <Link key={link.label} href={link.href} color="inherit" underline="hover">{link.label}</Link>
+            {navLinks.map((link: { label: string; url: string }) => (
+              <MuiLink key={link.label} href={link.url} component={NextLink} color="inherit" underline="hover">{link.label}</MuiLink>
             ))}
           </Box>
 
-          {/* 移动端菜单按钮 */}
           <IconButton sx={{ display: { md: 'none' } }} onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
         </Box>
       </motion.div>
 
-      {/* 移动端全屏菜单 */}
       <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)} PaperProps={{ sx: { width: '100%', bgcolor: '#fff' } }}>
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
+          <MuiLink href="/" component={NextLink} color="inherit" underline="none" onClick={() => setMobileOpen(false)} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {config.showNavbarLogo && (
+              <Box component="img" src="/logo.png" alt="Logo" sx={{ height: 32, width: 32 }} />
+            )}
+            <Typography variant="h6" fontWeight="bold">{config.name}</Typography>
+          </MuiLink>
           <IconButton onClick={() => setMobileOpen(false)}><CloseIcon /></IconButton>
         </Box>
-        <List sx={{ mt: 4 }}>
-          {navLinks.map(link => (
+        <List sx={{ mt: 2 }}>
+          {navLinks.map((link: { label: string; url: string }) => (
             <ListItem key={link.label} disablePadding>
-              <ListItemButton component="a" href={link.href} onClick={() => setMobileOpen(false)} sx={{ justifyContent: 'center' }}>
+              <ListItemButton component="a" href={link.url} onClick={() => setMobileOpen(false)} sx={{ justifyContent: 'center' }}>
                 <ListItemText primary={link.label} sx={{ textAlign: 'center' }} />
               </ListItemButton>
             </ListItem>
