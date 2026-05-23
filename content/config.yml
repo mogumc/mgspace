@@ -59,6 +59,7 @@ friends:
     url: "#"
 
 seo:
+  url: "https://moguspace.com"
   defaultDescription: "A minimal geometric portfolio showcasing projects and skills"
   ogImage: "/og-image.png"
   siteName: "MoGuSpace"

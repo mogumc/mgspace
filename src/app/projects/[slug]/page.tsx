@@ -25,8 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProjectBySlug(slug);
   if (!project) return { title: 'Not Found' };
   
-  const baseUrl = siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : '';
-  const projectUrl = `${baseUrl}/projects/${slug}`;
+  // 使用配置的 url 作为基础，如果没有配置则使用相对路径
+  const baseUrl = siteConfig.seo?.url || '';
+  const projectUrl = baseUrl ? `${baseUrl}/projects/${slug}` : `/projects/${slug}`;
   
   // 使用文章内的 description 和 imageUrl
   const description = project.description;

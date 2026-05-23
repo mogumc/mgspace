@@ -17,6 +17,7 @@ export const siteConfig = yaml.load(fs.readFileSync(configPath, 'utf8')) as {
   social: { label: string; url: string }[];
   friends: { label: string; url: string }[];
   seo: {
+    url: string;
     defaultDescription: string;
     ogImage: string;
     siteName: string;

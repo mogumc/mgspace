@@ -6,7 +6,11 @@ import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import BackgroundLayer from "@/components/BackgroundLayer";
 import { siteConfig } from "@/lib/config.server";
 
+// 使用配置的 url 作为 metadataBase，如果没有配置则使用相对路径
+const baseUrl = siteConfig.seo?.url || '';
+
 export const metadata: Metadata = {
+  metadataBase: baseUrl ? new URL(baseUrl) : undefined,
   title: siteConfig.title || "MoGuSpace",
   description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
   icons: {
@@ -15,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.title || "MoGuSpace",
     description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
-    url: siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : undefined,
+    url: baseUrl || undefined,
     siteName: siteConfig.seo?.siteName || siteConfig.title,
     ...(siteConfig.seo?.ogImage && {
       images: [

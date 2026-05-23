@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/config.server';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = siteConfig.seo?.siteName ? `https://${siteConfig.seo.siteName.toLowerCase().replace(/\s+/g, '')}.com` : '';
+  const baseUrl = siteConfig.seo?.url || '';
   
   return {
     title: siteConfig.title || "MoGuSpace",
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: siteConfig.title || "MoGuSpace",
       description: siteConfig.seo?.defaultDescription || siteConfig.description || "A minimal geometric portfolio",
-      url: baseUrl,
+      url: baseUrl || undefined,
       siteName: siteConfig.seo?.siteName || siteConfig.title,
       ...(siteConfig.seo?.ogImage && {
         images: [
