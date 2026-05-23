@@ -3,7 +3,7 @@ name: "YOUR NAME"
 description: "A minimal geometric portfolio"
 
 siteUrl: "https://yoursite.com"
-siteImage: "/og-image.png"
+siteImage: "/bg.webp"
 siteLocale: "zh-CN"
 
 favicon: ""
