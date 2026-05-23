@@ -62,7 +62,7 @@ export default function Home() {
                       slug={project.slug}
                       title={project.title}
                       description={project.description}
-                      imageUrl={project.imageUrl}
+                      imageUrl={project.imageUrl || siteConfig.siteImage}
                     />
                   </Grid>
                 ))}
