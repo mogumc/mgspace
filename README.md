@@ -4,7 +4,11 @@
 
 # MoGuSpace
 
-基于 Next.js + Material UI 的极简几何风格个人作品集，纯静态导出，无需服务端即可部署。
+基于 Next.js + Material UI 的极简几何风格个人作品集，纯静态导出，无需服务端即可部署。  
+  
+[![使用 Netlify 部署](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)   
+[![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)  
+[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/import/project?template=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)    
 
 ## 技术栈
 
@@ -123,6 +127,7 @@ friends:
 title: 项目名称
 description: 项目描述
 category: Web
+projectUrl: https://项目地址.com
 imageUrl: /cover.png
 date: 2026-01-01
 techStack:
@@ -141,6 +146,7 @@ techStack:
 | `title` | 否 | `"Untitled"` | 项目标题 |
 | `description` | 否 | `""` | 项目描述 |
 | `category` | 否 | `"Uncategorized"` | 分类，用于分组和侧边栏导航 |
+| `projectUrl` | 否 | `""` | 项目地址 |
 | `imageUrl` | 否 | config 中 `siteImage` | 封面图路径 |
 | `date` | 否 | 文件修改时间 | 日期 |
 | `techStack` | 否 | `[]` | 技术栈列表，icon 引用 `icons/` 下的 SVG 文件名 |
