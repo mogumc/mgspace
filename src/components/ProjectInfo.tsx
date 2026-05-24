@@ -7,21 +7,46 @@ interface ProjectInfoProps {
   author?: string;
   date: string;
   projectUrl?: string;
+  pageUrl: string;
 }
 
-export default function ProjectInfo({ title, author, date, projectUrl }: ProjectInfoProps) {
-  const [currentUrl, setCurrentUrl] = useState('');
+export default function ProjectInfo({ title, author, date, projectUrl, pageUrl }: ProjectInfoProps) {
+  const [copied, setCopied] = useState(false);
+  const [shareUrl, setShareUrl] = useState(pageUrl);
 
   useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []);
+    const realUrl = window.location.href;
+    if (realUrl !== pageUrl) {
+      setShareUrl(realUrl);
+    }
+  }, [pageUrl]);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {
+      // Clipboard API 不可用时静默降级
+    });
+  };
+
+  const linkSx = {
+    color: 'primary.main',
+    textDecoration: 'underline',
+    '&:hover': { opacity: 0.8 },
+    whiteSpace: 'nowrap' as const,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: 'block',
+    maxWidth: '100%',
+  };
 
   const items = [
     { label: '项目名称', value: title },
     { label: '开发人员', value: author },
     { label: '创建时间', value: date },
-    ...(projectUrl ? [{ label: '项目地址', value: projectUrl, href: projectUrl }] : []),
-    ...(currentUrl ? [{ label: '链接', value: currentUrl, href: currentUrl }] : []),
+    ...(projectUrl ? [{ label: '项目地址', value: projectUrl, href: projectUrl, isLink: true }] : []),
+    { label: '链接', value: shareUrl, isCopy: true },
   ];
 
   return (
@@ -39,15 +64,23 @@ export default function ProjectInfo({ title, author, date, projectUrl }: Project
             <Typography component="strong" sx={{ fontWeight: 700, whiteSpace: 'nowrap' }}>
               {item.label}:
             </Typography>
-            {'href' in item && item.href ? (
+            {'isLink' in item && item.isLink ? (
               <Typography
                 component="a"
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ color: 'primary.main', textDecoration: 'underline', '&:hover': { opacity: 0.8 } }}
+                sx={linkSx}
               >
                 {item.value}
+              </Typography>
+            ) : 'isCopy' in item && item.isCopy ? (
+              <Typography
+                component="span"
+                onClick={() => handleCopy(item.value)}
+                sx={{ ...linkSx, cursor: 'pointer' }}
+              >
+                {copied ? '已复制！' : item.value}
               </Typography>
             ) : (
               <Typography component="span">{item.value}</Typography>

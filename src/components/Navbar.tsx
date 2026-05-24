@@ -5,7 +5,7 @@ import { Box, Typography, IconButton, Drawer, List, ListItem, ListItemButton, Li
 import { alpha } from '@mui/material/styles';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLoadingTrigger } from './TopLoader';
+import { useLoadingTrigger } from '@/components/TopLoader';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -79,7 +79,7 @@ export default function Navbar({ config }: { config: any }) {
         }}>
           <MuiLink href="/" component={NextLink} color="inherit" underline="none" onClick={handleTitleClick} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {config.showNavbarLogo && (
-              <Box component="img" src={config.favicon || "/logo.webp"} alt="Logo" sx={{ height: 32, width: 32 }} />
+              <Box component="img" src={config.favicon || "/assets/favicon.png"} alt="Logo" sx={{ height: 32, width: 32 }} />
             )}
             <Typography variant="h6" fontWeight="bold">{config.name}</Typography>
           </MuiLink>
@@ -100,7 +100,7 @@ export default function Navbar({ config }: { config: any }) {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
           <MuiLink href="/" component={NextLink} color="inherit" underline="none" onClick={() => setMobileOpen(false)} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {config.showNavbarLogo && (
-              <Box component="img" src={config.favicon || "/logo.png"} alt="Logo" sx={{ height: 32, width: 32 }} />
+              <Box component="img" src={config.favicon || "/assets/favicon.png"} alt="Logo" sx={{ height: 32, width: 32 }} />
             )}
             <Typography variant="h6" fontWeight="bold">{config.name}</Typography>
           </MuiLink>

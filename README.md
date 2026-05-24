@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/logo.png" alt="KinhWeb" width="300"/>
+  <img src="./src/assets/favicon.png" alt="MoGuSpace" width="300"/>
 </p>
 
 # MoGuSpace
@@ -9,6 +9,10 @@
 [![使用 Netlify 部署](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)   
 [![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?repository-url=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)  
 [![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/import/project?template=https%3A%2F%2Fgithub.com%2Fmogumc%2FMoGuSpace)    
+
+## 预览
+
+！[预览](https://pic.moguq.top/images/space.5kld8ebbick0.webp)
 
 ## 技术栈
 
@@ -39,11 +43,8 @@
 │   ├── config.yml                  # 站点配置（名称、技能、社交、友链等）
 │   └── *.md                        # 项目 Markdown 文件
 ├── icons/                          # 技术图标（404 个 SVG）
-├── public/                         # 静态资源
-│   ├── bg.webp                     # 全局背景图
-│   ├── logo.png                    # Logo
-│   └── logo_bg.png                 # Logo 背景
 ├── src/
+│   ├── assets/                     # 资源文件（图片等）
 │   ├── app/
 │   │   ├── layout.tsx              # 根布局（Theme + 背景层 + 导航）
 │   │   ├── page.tsx                # 首页（Intro + Skills + Projects）

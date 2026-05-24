@@ -1,10 +1,13 @@
 'use client';
-import { Box, Typography, Button } from '@mui/material';
+import NextLink from 'next/link';
+import { Box, Typography, Button, Link as MuiLink } from '@mui/material';
+import { useLoadingTrigger } from '@/components/TopLoader';
 
 export default function NotFound() {
+  const triggerLoading = useLoadingTrigger();
   return (
     <Box sx={{ 
-      minHeight: '100vh', 
+      minHeight: { xs: '100vh', md: '100dvh' }, 
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
@@ -18,9 +21,11 @@ export default function NotFound() {
       <Typography variant="h5" sx={{ mb: 4, color: 'text.secondary' }}>
         页面不存在
       </Typography>
-      <Button variant="outlined" size="large" onClick={() => (window.location.href = '/')}>
-        返回首页
-      </Button>
+      <MuiLink href="/" component={NextLink} underline="none">
+        <Button onClick={triggerLoading} variant="outlined" size="large">
+          返回首页
+        </Button>
+      </MuiLink>
     </Box>
   );
 }
