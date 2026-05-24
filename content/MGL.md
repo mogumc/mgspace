@@ -4,6 +4,7 @@ description: MGL (Multi Game Launcher) 是一个使用 Wails2、Vue3 和 Go 构�
 category: Client
 projectUrl: https://github.com/OShinTeam/MGL
 imageUrl: /images/7bc8ea45.webp
+author: OShinTeam
 date: 2025-05-18 15:01:01
 techStack:
   - name: "Go"

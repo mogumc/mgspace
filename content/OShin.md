@@ -4,6 +4,7 @@ description: OShin 是一个多网盘聚合客户端，基于 Go、Wails v2 和 
 category: Client
 projectUrl: https://github.com/OShinTeam/OShin
 imageUrl: /images/003aace4.webp
+author: OShinTeam
 date: 2025-08-02 20:42:09
 techStack:
   - name: "Go"
