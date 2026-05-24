@@ -42,6 +42,8 @@ export default function ProjectToc({ headings, title }: ProjectTocProps) {
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT - 10;
     window.scrollTo({ top: y, behavior: 'smooth' });
+    // 同步更新 URL hash，方便分享
+    history.replaceState(null, '', `#${id}`);
   };
 
   return (

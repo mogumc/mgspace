@@ -69,7 +69,7 @@ navbar:
     url: "https://www.moguq.top"
   - label: "Blog"
     url: "https://blog.moguq.top"
-
+    
 social:
   - label: "GitHub"
     url: "https://github.com/mogumc"

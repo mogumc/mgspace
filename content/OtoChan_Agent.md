@@ -10,7 +10,6 @@ techStack:
     icon: "Python-Dark.svg"
     url: "https://python.org"
 ---
-
 ## 功能特性
 
 - **多模态交互**：支持文本聊天、图片及音频内容理解。
@@ -20,3 +19,6 @@ techStack:
 ## 项目说明
 
 本项目是宫瀬音角色的实例化应用，通过 AstrBot 框架连接大模型与丰富的环境感知工具，构建了一个功能全面且具备深度角色扮演体验的 AI 智能体。
+
+
+机器人目前开启了白名单，如需体验请加入群聊 https://t.me/OShinTeam_Chat
