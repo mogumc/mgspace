@@ -3,7 +3,7 @@ title: home
 description: home 是一个基于 Vue 实现的单 HTML 文件个人主页，支持载入动画、一言、网址集及音乐播放器等功能。
 category: Web
 projectUrl: https://github.com/mogumc/home
-imageUrl: /images/796bf069.webp
+imageUrl: https://t.alcy.cc/ycy/?p=home
 date: 2025-08-10 03:51:11
 techStack:
   - name: "Vue.js"

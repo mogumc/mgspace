@@ -3,7 +3,7 @@ title: Logger
 description: Logger 是一个轻量级的通用日志系统，旨在提供简便的文件日志保存能力，支持在 Go 项目中通过注册快速集成。
 category: Tool
 projectUrl: https://github.com/mogumc/Logger
-imageUrl: /images/acfb93c9.webp
+imageUrl: https://t.alcy.cc/ycy/?p=Logger
 date: 2025-02-08 11:15:40
 techStack:
   - name: "Go"

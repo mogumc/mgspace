@@ -3,7 +3,7 @@ title: QQImger
 description: QQImger 是一个通用的 QQ 上架表情包下载器，利用腾讯官方 API 实现，支持命令行方式下载表情包资源。
 category: Tool
 projectUrl: https://github.com/mogumc/QQImger
-imageUrl: /images/d3a5746a.webp
+imageUrl: https://t.alcy.cc/ycy/?p=QQImger
 date: 2025-02-07 16:10:27
 techStack:
   - name: "Go"
